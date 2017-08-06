@@ -7,7 +7,10 @@ from myblog.models import Users
 def index(request):
 
     u = Users.objects.all()
-    return  HttpResponse(u)
+    us = list(u)
+    t = type(u)
+    return render(request,'home.html', {'t':t, 'us':us})
+    #return  HttpResponse(u)
     #return HttpResponse(u'欢迎使用LiyyCMS')
     #return  render(request,'home.html')
 
